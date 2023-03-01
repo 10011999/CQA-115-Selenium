@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class IsEnabled {
+public class IsSelect {
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
 
@@ -14,10 +14,11 @@ public class IsEnabled {
 
         Thread.sleep(3000);
 
-        boolean e = driver.findElement(By.id("pass")).isEnabled();
-        System.out.println("isEnabled: "+e);
+        boolean s = driver.findElement(By.id("pass")).isSelected();
+        System.out.println("isSelect: "+s);
 
         Thread.sleep(2000);
+        
         driver.close();
     }
 }

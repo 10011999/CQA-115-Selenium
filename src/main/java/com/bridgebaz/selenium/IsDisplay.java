@@ -13,16 +13,12 @@ public class IsDisplay {
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.linkedin.com/");
+        driver.get("https://www.facebook.com/");
 
         Thread.sleep(3000);
-
-        WebElement signinBtn = driver.findElement(By.xpath("//button[contains(text(),'Sign in')]"));
-        if (signinBtn.isDisplayed()) {
-            System.out.println("Home page is displayed");
-        } else {
-            System.out.println("Home page is NOT displayed");
-        }
+        
+        boolean d = driver.findElement(By.id("passContainer")).isDisplayed();
+        System.out.println("isDisplay: "+d);
 
         Thread.sleep(3000);
         driver.close();
