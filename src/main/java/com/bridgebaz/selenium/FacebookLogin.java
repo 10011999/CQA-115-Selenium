@@ -1,17 +1,29 @@
 package com.bridgebaz.selenium;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class FacebookLogin {
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
+        //Open the chrome browser
+//        System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
+//
+//        WebDriver driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--remote-allow-origins=*");
+        chromeOptions.addArguments("--disable-notifications");
 
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
-        driver.get("https://www.facebook.com/");
+
+        //navigate to the url
+        driver.get("https://www.facebook.com/login.php/");
 
         WebElement email = driver.findElement(By.id("email"));
         email.sendKeys("775793");

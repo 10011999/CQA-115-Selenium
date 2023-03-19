@@ -7,18 +7,22 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class FacebookRegistration {
     public static void main(String[] args) throws InterruptedException {
+        //Open the chrome browser
         System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
+        //navigate to the url
         driver.get("https://www.facebook.com/");
 
+        //click on create account
         driver.findElement(By.partialLinkText("Create new")).click();
         Thread.sleep(5000);
 
 //        driver.findElement(By.linkText("Create new account")).click();
 //        Thread.sleep(4000);
 
+        //Enter a valid first name
         driver.findElement(By.name("firstname")).sendKeys("Aditya");
         Thread.sleep(4000);
 
@@ -45,6 +49,7 @@ public class FacebookRegistration {
         System.out.println("Title of the page: " + driver.getTitle());
         Thread.sleep(4000);
 
+        //close the browser
         driver.close();
     }
 }
