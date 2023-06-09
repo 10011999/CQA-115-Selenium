@@ -16,7 +16,6 @@ public class AutosuggestionEx_GoogleSearch {
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*");
-        //chromeOptions.addArguments("--disable-notifications");
 
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
@@ -38,5 +37,6 @@ public class AutosuggestionEx_GoogleSearch {
                 break;
             }
         }
+        driver.close();
     }
 }

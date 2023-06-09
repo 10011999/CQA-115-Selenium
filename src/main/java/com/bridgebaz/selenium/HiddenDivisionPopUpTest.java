@@ -1,5 +1,6 @@
 package com.bridgebaz.selenium;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,10 +8,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class HiddenDivisionPopUpTest {
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
+//        ChromeOptions chromeOptions = new ChromeOptions();
+//        chromeOptions.addArguments("--disable-notifications");
+//
+//        WebDriver driver = new ChromeDriver(chromeOptions);
+        WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--disable-notifications");
-
+        chromeOptions.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         driver.get("https://www.facebook.com/");

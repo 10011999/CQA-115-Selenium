@@ -1,16 +1,22 @@
 package com.bridgebaz.selenium;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class FacebookRegistration {
     public static void main(String[] args) throws InterruptedException {
         //Open the chrome browser
-        System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
-
-        WebDriver driver = new ChromeDriver();
+//        System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
+//
+//        WebDriver driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         //navigate to the url
         driver.get("https://www.facebook.com/");

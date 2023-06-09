@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
 import java.util.Set;
@@ -13,9 +14,13 @@ public class ChildWindowHandles {
 
         System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
 
-        WebDriver driver = new ChromeDriver();
+        //WebDriver driver = new ChromeDriver();
         //WebDriverManager.edgedriver().setup();
         //WebDriver driver = new EdgeDriver();
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         driver.get("https://www.naukri.com/");
 

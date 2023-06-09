@@ -1,5 +1,6 @@
 package com.bridgebaz.selenium;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,13 +14,17 @@ import java.util.List;
 public class ChecklisthasDUPLICATEvalues_HashSet {
     public static void main(String[] args) throws InterruptedException {
         //Open the chrome browser
-        System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
 
+//        ChromeOptions chromeOptions = new ChromeOptions();
+//        chromeOptions.addArguments("--remote-allow-origins=*");
+//
+//        WebDriver driver = new ChromeDriver(chromeOptions);
+//        driver.manage().window().maximize();
+        WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*");
-
         WebDriver driver = new ChromeDriver(chromeOptions);
-        driver.manage().window().maximize();
 
         driver.get("C:\\Users\\motew\\IdeaProjects\\CQA115Selenium\\src\\main\\resources\\selectmenu.html");
 
